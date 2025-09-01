@@ -57,3 +57,8 @@ build/
 # 缓存文件
 .cache/
 .parcel-cache/
+
+# 可执行文件
+*.exe
+*.msi
+*.dmg
