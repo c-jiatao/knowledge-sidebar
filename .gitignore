@@ -4,6 +4,7 @@ node_modules/
 # 数据文件
 data/
 *.json
+!vercel.json
 
 # 日志文件
 logs/
