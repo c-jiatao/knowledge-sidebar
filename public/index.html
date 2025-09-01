@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业微信知识库搜索</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>知识库搜索</span>
+            </div>
+            <div class="status" id="status">
+                <i class="fas fa-circle status-dot"></i>
+                <span>连接中...</span>
+            </div>
+        </header>
+
+        <!-- 搜索区域 -->
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="请输入您的问题或关键词..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <!-- 热门问题 -->
+            <div class="hot-questions" id="hotQuestions">
+                <div class="hot-title">
+                    <i class="fas fa-fire"></i>
+                    <span>热门问题</span>
+                </div>
+                <div class="hot-list" id="hotList">
+                    <!-- 热门问题将在这里动态加载 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 搜索结果 -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h3>搜索结果</h3>
+                <span class="results-count" id="resultsCount"></span>
+            </div>
+            <div class="results-list" id="resultsList">
+                <!-- 搜索结果将在这里动态加载 -->
+            </div>
+        </div>
+
+        <!-- 加载状态 -->
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <span>搜索中...</span>
+        </div>
+
+        <!-- 空状态 -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <i class="fas fa-search"></i>
+            <p>输入关键词开始搜索</p>
+        </div>
+
+        <!-- 无结果状态 -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-inbox"></i>
+            <p>未找到相关结果</p>
+            <small>请尝试其他关键词或重新描述您的问题</small>
+        </div>
+
+        <!-- 统计信息 -->
+        <footer class="footer">
+            <div class="stats">
+                <span id="totalCount">0</span> 条知识库记录
+            </div>
+            <div class="last-update">
+                最后更新: <span id="lastUpdate">-</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 搜索结果详情模态框 -->
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">问题详情</h3>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="question-detail">
+                    <h4>问题:</h4>
+                    <p id="modalQuestion"></p>
+                </div>
+                <div class="answer-detail">
+                    <h4>答案:</h4>
+                    <div id="modalAnswer" class="answer-content"></div>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn send-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                        发送
+                    </button>
+                    <button class="action-btn paste-btn" id="pasteBtn">
+                        <i class="fas fa-paste"></i>
+                        粘贴
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
